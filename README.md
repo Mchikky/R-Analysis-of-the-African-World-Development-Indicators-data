@@ -20,6 +20,59 @@ Homoscedasticity (constant variance of errors called residuals) across all the i
 Normality (normal distribution of error).
 No multicollinearity (no high correlation) between the independent variables.
 Plotting correlations with confidence intervals for HIV prevalence and population growth shows that there is no relationship between them with correlation coefficient, R of -0.2 and p-value of 0.15  likewise life_expectancy and literacy with correlation coefficient, R of 0.2 and p-value of 0.095. 
+##Install Package to Load Different Types of Datasets##
+install.packages("foreign")
+
+##Load Necessary Packages##
+library(foreign)
+
+
+##Load the Dataset##
+wbdata <- read.csv(file.choose (), header=TRUE)
+
+##View Dataset##
+View(wbdata)
+
+head(wbdata)
+str(wbdata$antiretroviral_HIV)
+as.numeric(wbdata$antiretroviral_HIV)
+wbdata[is.na(wbdata$antiretroviral_HIV)]=0
+#Finding missing data
+is.na(wbdata)
+#count missing data
+sum(is.na(wbdata))
+#replace missing data with zero
+wbdata$food_insecurity = ifelse(is.na(wbdata$food_insecurity), ave (wbdata$food_insecurity, FUN = function(x)
+                            mean(x,na.rm = TRUE)), wbdata$food_insecurity)
+View (wbdata)
+
+#check the structure
+str(wbdata)
+#Variable types
+class(wbdata$country)
+#Check for uniqueness
+unique(wbdata$country)
+#Check rows and columns
+dim(wbdata)
+#Rows with missing data
+wbdata[!complete.cases(wbdata), ]
+newdata <- wbdata[!complete.cases(wbdata), ]
+#omit missing data
+newdata <- na.omit(wbdata)
+#Replace NA values with 0 using is.na()
+wbdata[is.na(wbdata)]=0
+head(wbdata)
+#Check for duplicates
+sum(duplicated(wbdata$country))
+dim(wbdata[duplicated(wbdata$country)])
+#Filter columns
+#keep <-c("country","life_expectancy", "literacy", "HIV_15_49", "antiretroviral_HIV*","population", "urbanpop", "ruralpop", "subsaharan")
+#df = wbdata[keep]
+
+df=wbdata[,(names(wbdata)%in%
+           c("country","life_expectancy", "literacy", "HIV_15_49", "antiretroviral_HIV","population", "pop_growth","urbanpop", "ruralpop","subsaharan"))]
+View(df)
+
 ## Conclusion: 
 Based on the available data, the information generated is not robust enough to conclude that the level of literacy seems not to affect the prevalence of HIV among the adult population; hence the need for further studies.
 
