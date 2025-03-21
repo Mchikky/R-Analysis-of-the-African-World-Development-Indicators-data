@@ -13,13 +13,13 @@ The data frame has 54 observations and 33 variables with various missing data po
 
 ## Descriptive Statistics: 
 Using R studio, I installed certain packages including: “foreign”, “tidyverse”, ”pastecs”, “psych”, “ggplot2”, “corrplot”, and “coefplot”; loaded the corresponding libraries and ran the summary of descriptive statistics which provided mean, median, variation, standard deviation, minimum, maximum, skewness, and kurtosis values of all the variables at a glance. I went ahead to plot histograms to understand the data distribution which showed that some columns were skewed. Applying the Shapiro Wilk test for normality on variables such as HIV_15_19 and literacy shows p-values of 5e-10 and 2e-07 respectively; <0.05 hence we can assume that the data is not normally distributed. 
-<img width="459" alt="image" src="https://github.com/user-attachments/assets/63745d07-c022-40e8-b13d-fad93e9180ac" />
 
 ## Model: 
-I used correlation coefficients to check the relationships between the variables, however most of the variables seem not to be correlated except for urban and rural populations which are strongly inversely correlated with a value of -0.77. Contrarily, literacy is weakly correlated to life expectancy with 0.23
+I used correlation matrix to check the relationships between the variables, however most of the variables seem not to be correlated except for urban and rural populations which are strongly inversely correlated with a value of -0.77. Contrarily, literacy is weakly correlated to life expectancy with 0.23
 <img width="459" alt="image" src="https://github.com/user-attachments/assets/efef30ef-5ce1-4236-9ddd-b36d87f2b32e" />
 
 Using the scatter plot, I checked for the Sub Saharan African countries with the highest prevalence rate of HIV which shows that Eswatini is topping the list with 28%. It seems that the HIV prevalence rate for non Sub Saharan countries such as Morocco, Libya, Egypt, and Algeria were not captured. (See the figure below)
+
 <img width="459" alt="image" src="https://github.com/user-attachments/assets/77816930-c289-4129-8caf-b63de3ff7dd6" />
 
 A simple regression model is used to estimate the linear relationship between a dependent variable, HIV prevalence and an independent variable, population growth. Later a multiple linear regression model is also used to check the combined causal effects of literacy and population growth on HIV prevalence among the adult population. However, there are certain assumptions that need to hold before using a linear regression model and these include: 
