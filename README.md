@@ -20,6 +20,7 @@ Using R studio, I installed certain packages including: “foreign”, “tidyve
 
 ## Model: 
 I used correlation matrix to check the relationships between the variables, however most of the variables seem not to be correlated except for urban and rural populations which are strongly inversely correlated with a value of -0.77. Contrarily, literacy is weakly correlated to life expectancy with 0.23
+
 <img width="459" alt="image" src="https://github.com/user-attachments/assets/efef30ef-5ce1-4236-9ddd-b36d87f2b32e" />
 
 A simple regression model is used to estimate the cause-effect relationship between a dependent variable, HIV prevalence and an independent variable, population growth. Later a multiple linear regression model is also used to check the combined causal effects of literacy and population growth on HIV prevalence among the adult population. However, there are certain assumptions that need to hold before using a linear regression model and these include: 
